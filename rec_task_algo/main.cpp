@@ -4,8 +4,8 @@ using namespace std;
 void heapify(int arr[],int n,int i);
 void build_max_heap(int arr[],int n);
 void heap_sort(int arr[],int n);
-int distinct(int arr[],int i,int v,int c,int n);
-
+int count_distinct(int arr[],int i,int v,int c,int n);
+int distinct (int arr [],int n);
 int main()
 {
     int n;
@@ -14,9 +14,8 @@ int main()
     for (int i=0;i<n;i++){
 cin>>arr[i];
     }
-    heap_sort(arr,n);
-    int v=arr[0],c=1,i=1;
-    cout<<distinct(arr,i,v,c,n);
+int count_dist =distinct(arr,n);
+cout<<count_dist;
 
     return 0;
 }
@@ -49,14 +48,20 @@ for(int i=n-1;i>0;i--){
     heapify(arr,i,0);
 }
 }
-int distinct(int arr[],int i,int v,int c,int n){
+int count_distinct(int arr[],int i,int v,int c,int n){
+
 if(i>n-1){
     return c;
 }else{
 if(v!=arr[i]){
     c++;
     v=arr[i];}
-    distinct(arr,i+1,v,c,n);
+    count_distinct(arr,i+1,v,c,n);
 }
+}
+int distinct (int arr [],int n){
+heap_sort(arr,n);
+    int v=arr[0],c=1,i=1;
+    return count_distinct(arr,i,v,c,n);
 }
 
