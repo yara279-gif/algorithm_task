@@ -4,7 +4,7 @@ using namespace std;
 void heapify(int arr[],int n,int i);
 void build_max_heap(int arr[],int n);
 void heap_sort(int arr[],int n);
-int count_distinct(int arr[],int i,int v,int c,int n);
+int count_distinct(int arr[],int i,int variable,int c,int n);
 int distinct (int arr [],int n);
 int main()
 {
@@ -48,20 +48,20 @@ for(int i=n-1;i>0;i--){
     heapify(arr,i,0);
 }
 }
-int count_distinct(int arr[],int i,int v,int c,int n){
+int count_distinct(int arr[],int i,int variable,int c,int n){
 
 if(i>n-1){
     return c;
 }else{
-if(v!=arr[i]){
+if(variable!=arr[i]){
     c++;
-    v=arr[i];}
-    count_distinct(arr,i+1,v,c,n);
+    variable=arr[i];}
+    count_distinct(arr,i+1,variable,c,n);
 }
 }
 int distinct (int arr [],int n){
 heap_sort(arr,n);
-    int v=arr[0],c=1,i=1;
-    return count_distinct(arr,i,v,c,n);
+    int variable=arr[0],c=1,i=1;
+    return count_distinct(arr,i,variable,c,n);
 }
 
