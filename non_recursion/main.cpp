@@ -23,7 +23,9 @@ int countDistinct(int A[], int n) {
 
 int main() {
     int n;
+    printf("Enter size of array:");
     cin>>n;
+    printf("Enter the items you want to know the distinct between them:");
     int arr [n];
     for(int i=0;i<n;i++){
         cin>>arr[i];
